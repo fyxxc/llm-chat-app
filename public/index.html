@@ -33,14 +33,32 @@
 				padding: 1rem;
 			}
 
-			header {
-				text-align: center;
+			/* ✅ Neuer Header mit Logo links */
+			.app-header {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				position: relative;
 				margin-bottom: 2rem;
 				padding: 1rem 0;
 				border-bottom: 1px solid var(--border-color);
+				text-align: center;
 			}
 
-			h1 {
+			.header-left {
+				position: absolute;
+				left: 0;
+				display: flex;
+				align-items: center;
+			}
+
+			.header-logo {
+				height: 40px; /* 👈 Logo-Grösse hier ändern wenn nötig */
+				width: auto;
+				object-fit: contain;
+			}
+
+			.header-center h1 {
 				font-size: 1.5rem;
 				color: var(--primary-color);
 			}
@@ -143,9 +161,15 @@
 		</style>
 	</head>
 	<body>
-		<header>
-			<h1>Cloudflare AI Chat</h1>
-			<p>Powered by Cloudflare Workers AI</p>
+		<header class="app-header">
+			<div class="header-left">
+				<img src="/assets/images/logo.png" alt="Logo" class="header-logo">
+			</div>
+
+			<div class="header-center">
+				<h1>Cloudflare AI Chat</h1>
+				<p>Powered by Cloudflare Workers AI</p>
+			</div>
 		</header>
 
 		<div class="chat-container">
@@ -177,7 +201,6 @@
 			<p>Fynn Hofmann | Cloudflare Workers AI Chat &copy; 2026</p>
 		</footer>
 
-		<!-- Chat app script -->
 		<script src="chat.js"></script>
 	</body>
 </html>
